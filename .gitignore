@@ -1,0 +1,39 @@
+# temporary files
+.idea
+.vs
+.vscode/*
+!.vscode/launch.json
+.DS_Store
+__pycache__/
+.python-version
+.ruff_cache
+
+.benchmarks
+.pytest_cache/
+
+nltk_data
+
+# configs
+.env
+
+# modules
+node_modules
+dist
+dist-ssr
+coverage
+*.local
+.venv
+venv
+
+# logs
+logs
+*.log
+.log*
+
+# local data
+storage
+*.mp3
+*.pcm
+tests/resources
+
+# other files

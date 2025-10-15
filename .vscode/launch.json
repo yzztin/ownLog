@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node", // 使用 Node.js 调试器
+            "request": "launch", // 启动模式
+            "name": "Run Current TS File", // 显示在 VSCode Debug 面板的名称
+            "runtimeExecutable": "ts-node", // 使用 ts-node 运行
+            "args": [
+                "${file}"
+            ], // 代表当前打开的文件
+            "cwd": "${workspaceFolder}", // 当前工作目录
+            "autoAttachChildProcesses": true,
+            "env": {
+                "NODE_ENV": "development"
+            }
+        }
+    ]
+}

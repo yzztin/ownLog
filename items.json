@@ -1,0 +1,27 @@
+{
+    "id": "",
+    "name": "iPhone 17",
+    "tags": [
+        "手机",
+        "数码电器"
+    ],
+    "price": 5699.9,
+    "create_time": "",
+    "buy_time": "",
+    "abandon_time": "",
+    "plan_abandon_time": "",
+    "abandon_reason": "",
+    "is_wish": false,
+    "wish_buy_time": "",
+    "feelings": [
+        {
+            "time": "",
+            "time_point": "buy",
+            "keywords": [
+                "happy",
+                "excited"
+            ],
+            "content": ""
+        }
+    ]
+}
