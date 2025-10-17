@@ -1,14 +1,14 @@
 import express, { Request, Response } from 'express';
-import userRoutes from './routes/userRoutes'
+import userRoutes from './routes/itemRoutes'
 import { logger } from './middleware/logger';
 import { errorHandler } from './middleware/errorHandler'
+import { CONFIG } from './configs/config'
 
 const app = express();
-const port = 7000;
 
 app.use(express.json());
 app.use(logger);
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.use('/api', userRoutes);
 
@@ -16,6 +16,8 @@ app.get('/ping', (req: Request, res: Response) => {
     res.send('ownLog server standby!');
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://0.0.0.0:${port}/`);
+app.listen(CONFIG.SERVER_PORT, CONFIG.SERVER_HOST, () => {
+    console.log(`Server running at http://${CONFIG.SERVER_HOST}:${CONFIG.SERVER_PORT}/`);
 });
+
+console.log("项目配置信息：", CONFIG)

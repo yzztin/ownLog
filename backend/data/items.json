@@ -1,0 +1,45 @@
+[
+    {
+        "id": "111",
+        "name": "iPhone 17",
+        "is_favorite": true,
+        "is_wish": false,
+        "tags": [
+            "手机",
+            "数码电器"
+        ],
+        "price": 5999,
+        "create_time": "",
+        "buy_time": "",
+        "abandon_time": "",
+        "plan_abandon_time": "",
+        "abandon_reason": "",
+        "wish_buy_time": "",
+        "feelings": [
+            {
+                "time": "",
+                "time_point": "buy",
+                "keywords": [
+                    "happy",
+                    "excited"
+                ],
+                "content": ""
+            }
+        ]
+    },
+    {
+        "id": "19a9e713-ab7f-47d0-b9dd-0bb7a707093f",
+        "name": "手表",
+        "is_wish": true,
+        "is_favorite": false,
+        "tags": [],
+        "price": 2450,
+        "create_time": "2025/10/17 11:50:50",
+        "buy_time": null,
+        "abandon_time": null,
+        "plan_abandon_time": null,
+        "abandon_reason": null,
+        "wish_buy_time": null,
+        "feelings": []
+    }
+]
