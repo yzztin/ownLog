@@ -15,9 +15,22 @@ router.get('/item/:id', async (req: Request, res: Response) => {
 });
 
 router.get('/item', async (req: Request, res: Response) => {
-    const page = parseInt(req.query.page as string) || 1
-    const pageSize = parseInt(req.query.pageSize as string) || 10
-    const itemFilter = JSON.parse(req.query.filter as string) || {}
+    let page = Number.isInteger(Number(req.query.page)) ? parseInt(req.query.page as string, 10) : 1;
+    let pageSize = Number.isInteger(Number(req.query.pageSize)) ? parseInt(req.query.pageSize as string, 10) : 10;
+
+    // Ensure page and pageSize are positive and within reasonable limits
+    if (page < 1) page = 1;
+    if (pageSize < 1) pageSize = 10;
+    if (pageSize > 100) pageSize = 100;
+
+    let itemFilter = req.query.filter ? JSON.parse(req.query.filter as string) : {};
+    if (req.query.filter) {
+        try {
+            itemFilter = JSON.parse(req.query.filter as string);
+        } catch (e) {
+            return res.status(400).json({ error: 'Invalid filter JSON' });
+        }
+    }
 
     const filterItems: Item[] = await crud.read(undefined, itemFilter);
 

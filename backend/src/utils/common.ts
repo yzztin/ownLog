@@ -4,6 +4,6 @@ export function getUUID(): string {
     return randomUUID();
 }
 
-export function getTime(): string {
-    return new Date().toLocaleString('zh-CN', { hour12: false });
+export function getTime(locale: string = 'zh-CN'): string {
+    return new Date().toLocaleString(locale, { hour12: false });
 }

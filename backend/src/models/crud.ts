@@ -35,6 +35,17 @@ export class CRUD {
     }
 
     /**
+     * 写入数据到文件
+     */
+
+    private async writeData(): Promise<boolean> {
+        const jsonContent = JSON.stringify(this.data ?? [], null, 4);
+        await writeFile(this.path, jsonContent, "utf-8");
+
+        return true;
+    }
+
+    /**
    * 根据 id 或 filter 筛选数据
    */
     async read(id: string[] = [], filter: Record<string, any> = {}): Promise<Item[]> {
@@ -68,11 +79,9 @@ export class CRUD {
         await this.initData();
 
         this.data.push(...items);
-        const jsonContent = JSON.stringify(this.data ?? {}, null, 4);
-        await writeFile(this.path, jsonContent, "utf-8");
+        await this.writeData();
 
         return true;
-
     }
 
     /**
@@ -88,6 +97,7 @@ export class CRUD {
 
         const updatedItem = { ...this.data[index], ...newData };
         this.data[index] = updatedItem;
+        await this.writeData();
 
         return updatedItem;
     }
@@ -99,11 +109,8 @@ export class CRUD {
         await this.initData();
 
         const index = this.data.findIndex(item => item.id === id);
-        if (index === -1) {
-            throw new Error(`未找到记录: ${id}`);
-        }
-
         this.data.splice(index, 1);
+        await this.writeData();
 
         return true;
     }

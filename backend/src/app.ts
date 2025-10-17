@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import userRoutes from './routes/itemRoutes'
+import itemRoutes from './routes/itemRoutes'
 import { logger } from './middleware/logger';
 import { errorHandler } from './middleware/errorHandler'
 import { CONFIG } from './configs/config'
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(logger);
 app.use(errorHandler);
 
-app.use('/api', userRoutes);
+app.use('/api', itemRoutes);
 
 app.get('/ping', (req: Request, res: Response) => {
     res.send('ownLog server standby!');
